@@ -11,10 +11,20 @@ class Employee extends Model
 
     public function GetAllEmployees()
     {        
+        /*
         return DB::table('employees')
             ->select('first_name', 'last_name', 'department_name')
             ->join('departments', 'employees.department_id', 'departments.department_id')
             ->get();
+
+        */
+        return DB::table('employees')
+            ->select('first_name', 'last_name', 'department_name')
+            ->join('departments',function($join) {
+                $join->on('employees.department_id', 'departments.department_id');
+        })->get();
+            
+
     }
 
     
