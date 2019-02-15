@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+use App\Employee;
+
+Route::get('/employees','EmployeesController@index');
